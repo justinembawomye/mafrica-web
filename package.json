@@ -1,0 +1,45 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "Empty project.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack -d --mode development",
+    "build-prod": "webpack -p --mode production",
+    "start": "webpack-dev-server --hot --mode development"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-alert": "^7.0.1",
+    "react-alert-template-basic": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@hot-loader/react-dom": "^16.13.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
