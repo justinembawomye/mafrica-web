@@ -2,15 +2,15 @@ import axios from 'axios';
 import { createMessage, returnErrors } from './messages';
 import { tokenConfig } from './auth';
 
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from './types';
+import { GET_COURSES, DELETE_COURSE, ADD_COURSE } from './types';
 
 // GET LEADS
-export const getLeads = () => (dispatch, getState) => {
+export const getCourses = () => (dispatch, getState) => {
   axios
-    .get('/api/leads/', tokenConfig(getState))
+    .get('/api/courses/', tokenConfig(getState))
     .then((res) => {
       dispatch({
-        type: GET_LEADS,
+        type: GET_COURSES,
         payload: res.data,
       });
     })
@@ -18,13 +18,13 @@ export const getLeads = () => (dispatch, getState) => {
 };
 
 // DELETE LEAD
-export const deleteLead = (id) => (dispatch, getState) => {
+export const deleteCourse = (id) => (dispatch, getState) => {
   axios
-    .delete(`/api/leads/${id}/`, tokenConfig(getState))
+    .delete(`/api/courses/${id}/`, tokenConfig(getState))
     .then((res) => {
-      dispatch(createMessage({ deleteLead: 'Lead Deleted' }));
+      dispatch(createMessage({ deleteCourse: 'Course Deleted' }));
       dispatch({
-        type: DELETE_LEAD,
+        type: DELETE_COURSE,
         payload: id,
       });
     })
@@ -32,13 +32,13 @@ export const deleteLead = (id) => (dispatch, getState) => {
 };
 
 // ADD LEAD
-export const addLead = (lead) => (dispatch, getState) => {
+export const addCourse = (course) => (dispatch, getState) => {
   axios
-    .post('/api/leads/', lead, tokenConfig(getState))
+    .post('/api/courses/', course, tokenConfig(getState))
     .then((res) => {
-      dispatch(createMessage({ addLead: 'Lead Added' }));
+      dispatch(createMessage({ addCourse: 'Course Added' }));
       dispatch({
-        type: ADD_LEAD,
+        type: ADD_COURSE,
         payload: res.data,
       });
     })
