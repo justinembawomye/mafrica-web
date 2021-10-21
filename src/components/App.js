@@ -14,6 +14,7 @@ import Dashboard from './courses/Dashboard';
 import { Provider } from 'react-redux';
 import store from '../store';
 import { loadUser } from '../actions/auth';
+import Courses from './courses/Courses';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -36,18 +37,27 @@ class App extends Component {
             <Fragment>
               <Header />
               <Alerts />
+              
               <div className="container">
                 <Switch>
                   <PrivateRoute exact path="/" component={Dashboard} />
+                  <PrivateRoute exact path="/courses" component={Courses} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                 
 
                                   
                 </Switch>
               </div>
+
+          
             </Fragment>
           </Router>
         </AlertProvider>
+
+        <div>
+           <h2>Our Courses</h2>
+        </div>
       </Provider>
     );
   }

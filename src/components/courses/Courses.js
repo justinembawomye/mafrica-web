@@ -1,17 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getLeads, deleteLead } from '../../actions/courses';
+import { getCourses, deleteCourse,addCourse} from '../../actions/courses';
 
-export class Leads extends Component {
+export class Courses extends Component {
   static propTypes = {
-    leads: PropTypes.array.isRequired,
-    getLeads: PropTypes.func.isRequired,
-    deleteLead: PropTypes.func.isRequired,
+    courses: PropTypes.array.isRequired,
+    getCourses: PropTypes.func.isRequired,
+    deleteCourse: PropTypes.func.isRequired,
+    deleteCourse: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    this.props.getLeads();
+    this.props.getCourses();
   }
 
   render() {
@@ -25,7 +26,7 @@ export class Leads extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  leads: state.leads.leads,
+  courses: state.courses.courses,
 });
 
-export default connect(mapStateToProps, { getLeads, deleteLead })(Leads);
+export default connect(mapStateToProps, { getCourses, deleteCourse })(Courses);

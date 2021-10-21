@@ -7,7 +7,7 @@ import { GET_COURSES, DELETE_COURSE, ADD_COURSE } from './types';
 // GET LEADS
 export const getCourses = () => (dispatch, getState) => {
   axios
-    .get('/api/courses/', tokenConfig(getState))
+    .get('/api/api/courses/', tokenConfig(getState))
     .then((res) => {
       dispatch({
         type: GET_COURSES,
@@ -17,7 +17,7 @@ export const getCourses = () => (dispatch, getState) => {
     .catch((err) => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-// DELETE LEAD
+// DELETE course
 export const deleteCourse = (id) => (dispatch, getState) => {
   axios
     .delete(`/api/courses/${id}/`, tokenConfig(getState))
@@ -31,10 +31,10 @@ export const deleteCourse = (id) => (dispatch, getState) => {
     .catch((err) => console.log(err));
 };
 
-// ADD LEAD
+// ADD Course
 export const addCourse = (course) => (dispatch, getState) => {
   axios
-    .post('/api/courses/', course, tokenConfig(getState))
+    .post('/api/addcourse', course, tokenConfig(getState))
     .then((res) => {
       dispatch(createMessage({ addCourse: 'Course Added' }));
       dispatch({
